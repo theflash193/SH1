@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 11:21:07 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 10:59:48 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/09 14:34:22 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_strclr(char *s)
 {
+	if (!s)
+		return ;
 	ft_bzero((void *)s, ft_strlen(s));
 }

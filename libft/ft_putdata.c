@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chr_index.c                                     :+:      :+:    :+:   */
+/*   ft_putdata.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/04 16:09:40 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/04 16:09:43 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/16 09:57:29 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/16 10:03:35 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_chr_index(char const *s, int c)
-{
-	int		i;
+#include "libft.h"
 
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (i);
-		i++;
-	}
-	return (-1);
+void	ft_putdata(void *data, char const *s, int mode)
+{
+	ft_putstr(s);
+	ft_putstr(" :");
+	if (mode == 1)
+		ft_putstr((char *)data);
+	else if (mode == 2)
+		ft_putnbr((int)data);
+	ft_putstr(" ");
 }

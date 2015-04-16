@@ -5,82 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/26 11:29:49 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 10:53:31 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/09 15:25:44 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/09 16:25:31 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(char const *s, char c)
+static int	ft_count(char *s, char c)
 {
-	int		i;
-	int		m;
+	int	i;
+	int	j;
+	int	w;
 
+	w = 0;
 	i = 0;
-	m = 0;
-	while (s[i])
+	while (*(s + i) != '\0')
 	{
-		if (s[i] != c)
-		{
-			m++;
-			while (s[i] != c && s[i])
-				i++;
-		}
-		if (s[i] == c)
+		while (*(s + i) == c)
 			i++;
+		j = i;
+		while (*(s + i) != '\0' && *(s + i) != c)
+			i++;
+		if (i != j)
+			w++;
 	}
-	return (m);
-}
-
-static char	**ft_create_tab(char **split, char const *s, char c, int m)
-{
-	int				i;
-	int				j;
-	int				k;
-	unsigned int	start;
-
-	i = 0;
-	j = 0;
-	while (s[i] && m > 0)
-	{
-		k = 0;
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] != c && s[i])
-		{
-			i++;
-			k++;
-		}
-		split[j] = ft_strsub(s, start, k);
-		j++;
-		m--;
-	}
-	split[j] = '\0';
-	return (split);
+	return (w + 1);
 }
 
 char		**ft_strsplit(char const *s, char c)
 {
-	int		m;
-	char	**split;
+	char	**tab;
+	int		ij[2];
+	int		w;
 
 	if (!s)
 		return (NULL);
-	else if (s[0] == '\0')
+	if (!(tab = (char **)ft_memalloc(sizeof(char *) * ft_count((char *)s, c))))
+		return (NULL);
+	w = 0;
+	ij[0] = 0;
+	while (*(s + ij[0]) != '\0' && !(ij[1] = 0))
 	{
-		if ((split = (char **)ft_memalloc(sizeof(char *))) == NULL)
-			return (NULL);
-		split[0] = NULL;
-		return (split);
+		while (*(s + ij[0]) == c && (ij[1] = ij[0] + 1))
+			ij[0]++;
+		while (*(s + ij[0]) != '\0' && *(s + ij[0]) != c)
+			ij[0]++;
+		if (ij[0] == ij[1])
+			return (tab);
+		tab[w++] = ft_strndup(s + ij[1], ij[0] - ij[1]);
 	}
-	else
-	{
-		m = ft_count_words(s, c);
-		if ((split = (char **)ft_memalloc((sizeof(char *) * (m + 1)))) == NULL)
-			return (NULL);
-		split = ft_create_tab(split, s, c, m);
-		return (split);
-	}
+	tab[w] = 0;
+	return (tab);
 }

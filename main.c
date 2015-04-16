@@ -6,27 +6,19 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:22:03 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/13 16:49:33 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/16 17:29:56 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int		main(int argc, char **argv, char **environ)
+int		main(void)
 {
-	t_list	*lst;
-
-	int		ret;
-	char	*line;
+	extern char **environ;
 	t_env	e;
 
-	e->env = env;
-	while (42)
-	{
-		ft_prompt();
-		if (ret = get_next_line(0, &line))
-		{}
-		parse(line);
-	}
+	e.line = NULL;
+	e.env = fill_env(environ);
+	minishell(&e);
 	return (0);
 }

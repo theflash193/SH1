@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
+/*   ft_put_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/16 09:58:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/16 09:58:34 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/16 17:07:53 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/16 17:12:35 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n)
-{
-	char	*ret;
+/*
+*** Print array type **char
+*/
 
-	if (!s1 || !s2 || !(ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	ft_strcpy(ret, s1);
-	ft_strncat(ret, s2, n);
-	return (ret);
+void	ft_put_array(char **tab)
+{
+	int	i;
+
+	i = 0;
+	ft_putendl("array(");
+	while (tab[i])
+	{
+		ft_putstr("\t");
+		ft_putnbr(i);
+		ft_putstr(" => ");
+		ft_putendl(tab[i]);
+		i++;
+	}
 }

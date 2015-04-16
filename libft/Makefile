@@ -34,7 +34,8 @@ FILES= ft_memset.c ft_bzero.c ft_strlen.c ft_strcpy.c \
 		ft_ispace.c ft_islower.c ft_isblank.c ft_isblank2.c ft_isupper.c \
 		ft_islower.c ft_isalnum.c \
 		ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
-		ft_lstmap.c ft_lst_push_back.c ft_strndup.c ft_chr_index.c ft_strnjoin.c
+		ft_lstmap.c ft_lst_push_back.c ft_strndup.c ft_strnjoin.c ft_putdata.c \
+		ft_put_array.c ft_array_len.c
 
 
 OBJ=$(FILES:.c=.o)

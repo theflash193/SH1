@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
+/*   fill_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/16 09:58:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/16 09:58:34 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/16 17:21:57 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_minishell1.h"
 
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n)
+char	**fill_env(char **environ)
 {
-	char	*ret;
+	char	**ret;
+	int		i;
 
-	if (!s1 || !s2 || !(ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	ft_strcpy(ret, s1);
-	ft_strncat(ret, s2, n);
+	ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1));
+	i = 0;
+	while (environ[i])
+	{
+		if (!(ret[i] = ft_strdup(environ[i])))
+			return (NULL);
+		i++;
+	}
 	return (ret);
 }

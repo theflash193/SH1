@@ -22,7 +22,7 @@ LIB = ./libft/libft.a
 
 FLAGS = -Wall -Werror -Wextra -g
 
-SRC = main.c
+SRC = main.c fill_env.c minishell.c
 
 OBJ = $(SRC:.c=.o)
 

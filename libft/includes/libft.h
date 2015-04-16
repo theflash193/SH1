@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 12:39:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 14:34:58 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/16 17:17:07 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,15 @@ void				ft_lst_push_back(t_list **alst, t_list *elem);
 int					ft_chr_index(char const *s, int c);
 
 /*
-*** join n charactere of s1 and s2 to create no str
+*** print the states of data
 */
-char				*ft_strnjoin(char const *s1, char const *s2, size_t);
+void				ft_putdata(void *data, char const *s, int mode);
+
+/*
+*** join s1 and n caractere of s2
+*/
+char				*ft_strnjoin(char const *s1, char const *s2, size_t n);
+void				ft_put_array(char **tab);
+int					ft_array_len(char **tab);
 
 #endif

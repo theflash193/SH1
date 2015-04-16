@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 13:02:59 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/13 10:58:57 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/10 10:59:39 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s)
-		return (NULL);
 	if (c == '\0')
 	{
 		while (*s)

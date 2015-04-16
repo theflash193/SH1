@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 11:27:53 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 10:54:30 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/09 16:37:16 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	int		i;
 	char	*ret;
 
+	if (!s)
+		return (NULL);
 	l = ft_strlen(s);
 	ret = ft_strnew(l);
+	i = 0;
 	while (s[i])
 	{
 		ret[i] = (*f)(s[i]);
