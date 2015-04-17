@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/17 19:23:07 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/17 19:33:52 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void			minishell(t_env *e);
 char			**parse(char const *line);
 char			**ft_strsplit2(char const *s);
 char			*ft_strtrim(char const *s);
-
 #endif
