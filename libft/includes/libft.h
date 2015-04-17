@@ -6,14 +6,18 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 12:39:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 14:34:58 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/17 18:20:30 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 32
 # include <string.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <unistd.h>
+# include "libft.h"
 
 typedef struct		s_list
 {
@@ -21,6 +25,12 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_gnl
+{
+	int				i;
+	int				ret;
+}					t_gnl;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -87,24 +97,12 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_strndup(const char *s, size_t n);
-/*
-*** Bonus function
-*/
-
-/*
-*** add elem to end of list
-*/
 void				ft_lst_push_back(t_list **alst, t_list *elem);
-
-/*
-*** find ce first occurence of c in s.
-*** function return is index if c is find or -1 if nothing is find
-*/
 int					ft_chr_index(char const *s, int c);
-
-/*
-*** join n charactere of s1 and s2 to create no str
-*/
-char				*ft_strnjoin(char const *s1, char const *s2, size_t);
+void				ft_putdata(void *data, char const *s, int mode);
+char				*ft_strnjoin(char const *s1, char const *s2, size_t n);
+void				ft_put_array(char **tab);
+int					ft_array_len(char **tab);
+int					get_next_line(int const fd, char **line);
 
 #endif

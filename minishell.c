@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
+/*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/16 09:58:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/16 09:58:34 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/16 16:33:55 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/17 19:22:13 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_minishell1.h"
 
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n)
+void	minishell(t_env *e)
 {
-	char	*ret;
+	int ret;
 
-	if (!s1 || !s2 || !(ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	ft_strcpy(ret, s1);
-	ft_strncat(ret, s2, n);
-	return (ret);
+	while (42)
+	{
+		ft_prompt();
+		if ((ret = get_next_line(0, &(e->line))) == -1)
+		{
+		}
+		e->cmd = parse(e->line);
+		ft_put_array(e->cmd);
+	}
 }

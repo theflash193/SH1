@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 13:53:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 11:01:42 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/09 16:36:52 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*ret;
 
-	if (!lst)
-		return (NULL);
 	ret = f(lst);
 	while (lst->next)
 	{

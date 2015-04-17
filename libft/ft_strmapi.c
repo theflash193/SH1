@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 11:28:02 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 10:58:29 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/09 14:36:34 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*ret;
 
+	if (!s)
+		return (NULL);
 	l = ft_strlen(s);
 	ret = ft_strnew(l + 1);
+	i = 0;
 	while (s[i])
 	{
 		ret[i] = (*f)(i, s[i]);

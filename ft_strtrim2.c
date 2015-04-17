@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/16 09:58:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/16 09:58:34 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/17 19:05:26 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/17 19:23:11 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n)
+char	*ft_strtrim(char const *s)
 {
-	char	*ret;
+	int i;
+	int j;
 
-	if (!s1 || !s2 || !(ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+	if (!s)
 		return (NULL);
-	ft_strcpy(ret, s1);
-	ft_strncat(ret, s2, n);
-	return (ret);
+	i = 0;
+	j = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	while (ft_ispace(*(s + i)))
+		i++;
+	while (ft_ispace(*(s + j - 1)))
+		j--;
+	return (ft_strsub(s, i, (j != 0) ? j -= i : j));
 }

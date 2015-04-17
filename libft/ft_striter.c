@@ -6,12 +6,14 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 11:27:15 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/10 10:46:33 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/09 14:41:30 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
+	if (!s || !f)
+		return ;
 	while (*s)
 		(*f)(s++);
 }
