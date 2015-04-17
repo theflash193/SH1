@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/17 18:52:52 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/17 19:26:23 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/17 22:51:40 by anonymous         #+#    #+#             */
+/*   Updated: 2015/04/18 00:20:43 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static int	ft_count(char *s)
 {
@@ -50,7 +49,7 @@ char		**ft_strsplit2(char const *s)
 	{
 		while (ft_ispace(*(s + ij[0])) && (ij[1] = ij[0] + 1))
 			ij[0]++;
-		while (*(s + ij[0]) != '\0' && ft_ispace(*(s + ij[0])))
+		while (*(s + ij[0]) != '\0' && !ft_ispace(*(s + ij[0])))
 			ij[0]++;
 		if (ij[0] == ij[1])
 			return (tab);
