@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fill_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/16 17:21:57 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/18 04:40:42 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char	**fill_env(char **environ)
+char	**fill_env(char const **environ)
 {
 	char	**ret;
 	int		i;
