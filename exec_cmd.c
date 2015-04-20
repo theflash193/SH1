@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/20 12:46:37 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/20 12:55:17 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 static char	**get_path(char **env)
 {
-	int	i;
+	char	**ret;
 
-	i = 0;
-	// ft_put_array(env);
-	while (env[i])
+	(void)ret;
+	while (env++)
 	{
-//		ft_putdata((void *)env[i], "env = ", 1);
-		if (ft_strnstr(env[i], "PATH=", 5))
+		if (ft_strnstr(env, "PATH=", 5))
 		{
-
-			ft_putdata(ft_strnstr(env[i], "PATH=", 5), "env :", 1);
+			ft_putdata(env + i, "path :", 1);
 		}
 		i++;
 	}
