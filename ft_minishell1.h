@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/20 12:27:37 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/20 14:38:41 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ char			**parse(char const *line);
 char			**ft_strsplit2(char const *s);
 char			*ft_strtrim(char const *s);
 void			exec_cmd(t_env *e);
-
+int				check_builtins(char **cmd);
+void			ft_exit(int status);
 #endif

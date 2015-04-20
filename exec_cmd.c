@@ -6,43 +6,51 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/20 12:55:17 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/20 14:38:01 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-static char	**get_path(char **env)
+
+static char		**get_path(char **env)
 {
 	char	**ret;
+	int		i;
 
-	(void)ret;
-	while (env++)
+	i = 0;
+	ret = NULL;
+	while (env[i])
 	{
-		if (ft_strnstr(env, "PATH=", 5))
+		if (ft_strnstr(env[i], "PATH=", 5))
 		{
-			ft_putdata(env + i, "path :", 1);
+			if (!(ret = ft_strsplit(env[i] + 5, ':')))
+				return (NULL);
+			break;
 		}
 		i++;
 	}
-	exit(0);
-	return (NULL);
+	return (ret);
 }
 
-void		exec_cmd(t_env *e)
+void			exec_cmd(t_env *e)
 {
-	// je verifie la commande si elle est invalide j'affiche un message d'erreur et e rend la min a l'utilisateur
-	// Si (la commande est valide et que c'est un des biltin)
-	//  - j'execute ce biltin
-	// Sinon
-	// - je vais chercher ma cmd dans mon PATH
-	// - j'execute ma commande
+	int		i;
+	char	*path_bin;
+
+	i = 0;
+	path_bin = NULL;
+	// if (check_builtins(e->cmd)) // Si ma commande fait partie de mes bultins je l'execute
+	// 	return ;
 	e->path = get_path(e->env); // je stocke le PATH dans un double tableau
-	ft_put_array(e->path);
 	if (fork() == 0)
 	{
-		// while ()
-		execve("/bin/ls", e->cmd, NULL);
+		while (e->path[i])
+		{
+			path_bin = ft_strjoin(e->path[i], ft_strjoin("/", e->cmd[0]));
+			execve(path_bin, e->cmd, e->env);
+			i++;
+		}
 	}
 	else
 		wait(NULL);
