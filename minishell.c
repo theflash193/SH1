@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:33:55 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/18 04:44:06 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/20 12:05:38 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	minishell(t_env *e)
 {
-	int ret;
+	int	ret;
 
 	while (42)
 	{
@@ -24,5 +24,7 @@ void	minishell(t_env *e)
 		}
 		e->cmd = parse(e->line);
 		ft_put_array(e->cmd);
+		exec_cmd(e);
+		// j'essaie d'execute la commande entre par l'utilisateur
 	}
 }

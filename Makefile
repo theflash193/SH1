@@ -23,7 +23,7 @@ LIB = ./libft/libft.a
 FLAGS = -Wall -Werror -Wextra -g
 
 SRC = main.c fill_env.c minishell.c ft_prompt.c parse.c ft_strtrim2.c \
-	ft_strsplit2.c
+	ft_strsplit2.c exec_cmd.c
 
 
 OBJ = $(SRC:.c=.o)
