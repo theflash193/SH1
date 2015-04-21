@@ -6,20 +6,19 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 14:05:47 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/20 14:13:35 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/21 16:00:21 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int	check_builtins(char **cmd)
+int	check_builtins(t_env *e)
 {
-	(void)cmd;
-	// if (ft_strequ(cmd[0], "cd") || ft_strequ(cmd[0], "cd"))
-	// {
-	// 	ft_cd(cmd);
-	// 	return (1);
-	// }
+	if (ft_strequ(e->cmd[0], "cd") || ft_strequ(e->cmd[0], "cd"))
+	{
+		ft_cd(e);
+		return (1);
+	}
 	// else if (ft_strequ(cmd[0], "setenv") || ft_strequ(cmd[0], "SETENV"))
 	// {
 	// 	ft_setenv();
@@ -35,6 +34,6 @@ int	check_builtins(char **cmd)
 	// 	ft_env();
 	// 	return (1);
 	// }
-	// else
+	else
 		return (0);
 }

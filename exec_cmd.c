@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/20 14:38:01 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/21 15:22:13 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void			exec_cmd(t_env *e)
 
 	i = 0;
 	path_bin = NULL;
-	// if (check_builtins(e->cmd)) // Si ma commande fait partie de mes bultins je l'execute
-	// 	return ;
+	if (check_builtins(e)) // Si ma commande fait partie de mes bultins je l'execute
+		return ;
 	e->path = get_path(e->env); // je stocke le PATH dans un double tableau
 	if (fork() == 0)
 	{
