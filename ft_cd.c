@@ -6,39 +6,38 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 10:20:05 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/21 16:09:15 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/21 17:24:41 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-// static int	mv_path(t_env *e, char *path)
-// {
-// 	// int		i;
-// 	// int		ret;
-// 	// char	tmp_pwd[256];
-// 	// char	tmp_oldpwd[256];
+static int	change_directory(t_env *e, char *path)
+{
+	char	old_pwd[256];
+	char	pwd[256];
 
-// 	// i = 0;
-// 	// while (e->env[i])
-// 	// {
-// 	// 	if (ft_strnstr(e->env[i], "PWD=", 4))
-// 	// 		ft_strcpy(tmp_pwd, e->env[i] + 4);
-// 	// 	i++;
-// 	// }
-// 	// // J'utilise chdir pour changer le repertoire
-// 	// // je modifie le PWD avec le nouveau chemin
-// 	// // je modifie le OLDPWD (il devient egale a l'ancien PWD)
-// 	return (0);
-// }
+	old_pwd = getcwd(old_pwd, 256); // je stocke le pwd actuelle dans ma variable old_pwd
+	chdir(path); // je chenge de diretory
+	pwd = getcwd(pwd, 256); // je stocke le nouveau pwd dans pwd
+	while (e->env[i]) // je parcour mon tableau pour modifier mon pwd et mon oldpwd
+	{
+		if (ft_strnstr(e->env[i], "PWD=", 4))
+			e->env[i] = ft_strdup(pwd);
+		if (ft_strnstr(e->env[i], "OLDPWD=", 7))
+			e->env[i] = ft_strdup(old_pwd);
+		i++;
+	}
+	return (0);
+}
 
-static int check_option(t_env *e, home)
+static int check_option(t_env *e, char *home)
 {
 	int	nbr;
 
 	nbr = ft_array_len(e->env);
 	if (nbr == 1) // Si on a un cd sans argument on fait simplement un cd vers le home
-		mv_path();
+		change_directory(home);
 }
 
 int			ft_cd(t_env *e)
@@ -55,4 +54,5 @@ int			ft_cd(t_env *e)
 		}
 		i++;
 	}
+
 }
