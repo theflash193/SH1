@@ -20,7 +20,7 @@ IFLAGS = -I . -I ./libft/includes
 
 LIB = ./libft/libft.a
 
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall  -Werror -Wextra -g
 
 SRC = main.c fill_env.c minishell.c ft_prompt.c parse.c ft_strtrim2.c \
 	ft_strsplit2.c
@@ -44,9 +44,10 @@ $(NAME): $(OBJ)
 clean:
 	$(RM) $(OBJ) $(NAME).dSYM
 
-
 fclean: clean
 	$(RM) $(NAME)
+	make fclean -C $(HEAD)
+
 re: fclean all
 
 gdb: $(OBJ)

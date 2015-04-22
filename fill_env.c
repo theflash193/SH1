@@ -6,18 +6,19 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/18 04:40:42 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/18 19:57:34 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char	**fill_env(char const **environ)
+char	**fill_env(char **environ)
 {
 	char	**ret;
 	int		i;
 
-	ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1));
+	if(!(ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1))))
+		return (NULL);
 	i = 0;
 	while (environ[i])
 	{
@@ -25,5 +26,6 @@ char	**fill_env(char const **environ)
 			return (NULL);
 		i++;
 	}
+	ft_put_array(ret);
 	return (ret);
 }
