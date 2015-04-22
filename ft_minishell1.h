@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/22 16:07:21 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/22 16:53:39 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,15 @@ char			*ft_strtrim(char const *s);
 void			exec_cmd(t_env *e);
 int				check_builtins(t_env *e);
 void			ft_exit(int status);
-
 /*
 *** bultins
 */
 int				ft_cd(t_env *e);
+/*
+*** env_routine.c
+*/
+int				ft_content_exist(char **env, char *line);
+char			*ft_get_content(char **env, char *line);
+void			ft_set_content(char **env, char *line, char *new_content);
 
 #endif

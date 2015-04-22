@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 10:20:05 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/21 17:24:41 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/22 17:09:32 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,10 @@ static int	change_directory(t_env *e, char *path)
 	char	pwd[256];
 
 	old_pwd = getcwd(old_pwd, 256); // je stocke le pwd actuelle dans ma variable old_pwd
-	chdir(path); // je chenge de diretory
+	chdir(path); // je change de diretory
 	pwd = getcwd(pwd, 256); // je stocke le nouveau pwd dans pwd
-	while (e->env[i]) // je parcour mon tableau pour modifier mon pwd et mon oldpwd
-	{
-		if (ft_strnstr(e->env[i], "PWD=", 4))
-			e->env[i] = ft_strdup(pwd);
-		if (ft_strnstr(e->env[i], "OLDPWD=", 7))
-			e->env[i] = ft_strdup(old_pwd);
-		i++;
-	}
+	ft_set_content(e->env, "PWD", pwd);
+	ft_set_content(e->env, "OLDPWD", old_pwd);
 	return (0);
 }
 
@@ -45,7 +39,7 @@ int			ft_cd(t_env *e)
 	char	home_tmp[256];
 	int i;
 
-	while (env[i]) // je parcours le home pour recuper le home
+	while (env[i]) // je parcours le home pour recuperer le home
 	{
 		if (ft_strnstr(env[i], "HOME=", 5))
 		{
