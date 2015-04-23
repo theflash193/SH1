@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 10:20:05 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/23 09:45:21 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/23 13:35:56 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
+
+static int	check_error(path)
+{
+
+}
 
 static int	change_directory(t_env *e, char *path)
 {
@@ -20,7 +25,8 @@ static int	change_directory(t_env *e, char *path)
 
 	ret = 0;
 	old_pwd = getcwd(old_pwd, 256); // je stocke le pwd actuelle dans ma variable old_pwd
-	chdir(path); // je change de diretory
+	if ((ret = chdir(path) = -1)
+	{}
 	pwd = getcwd(pwd, 256); // je stocke le nouveau pwd dans pwd
 	ft_set_content(e->env, "PWD", pwd);
 	ft_set_content(e->env, "OLDPWD", old_pwd);
