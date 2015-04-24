@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/13 16:22:03 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 12:57:58 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/23 13:36:38 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/23 13:43:17 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_minishell1.h"
+#include <stdio.h>
+#include <unistd.h>
 
-int		main(void)
+int main(int argc, char const *argv[])
 {
-	extern char **environ;
-	t_env	e;
-
-	e.line = NULL;
-	e.cmd = NULL;
-	e.env = fill_env(environ);
-	minishell(&e);
-	return (0);
+	printf("access %d\n", access("test", R_OK));
+	return 0;
 }
