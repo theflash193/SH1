@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_setenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/23 11:37:52 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 16:58:02 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/24 15:30:01 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/24 17:46:12 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strcat(char *s1, const char *s2)
+#include "ft_minishell1.h"
+static	check_error(t_env *e)
 {
-	char	*tmp;
-	int		i;
+	if ()
+}
 
-	tmp = s1;
-	i = 0;
-	while (tmp[i])
-		i++;
-	while (*s2)
+int		ft_setenv(const char *name, const char *value, int overwrite, t_env *e)
+{
+	if (check_error())
+		return (-1);
+	if (!ft_content_exist(name))
 	{
-		tmp[i] = *s2;
-		i++;
-		s2++;
+		ft_add_content(e, name, value);
+		return (0);
 	}
-	tmp[i] = '\0';
-	return (s1);
 }

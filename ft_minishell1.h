@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 12:43:49 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/24 15:55:37 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,17 @@ void			exec_cmd(t_env *e);
 int				check_builtins(t_env *e);
 void			ft_exit(int status);
 void			ft_error(int mode, char *arg);
+
 /*
 *** bultins
 */
 int				ft_cd(t_env *e);
+int				ft_setenv(const char *name, const char *value, int overwrite);
 /*
 *** env_routine.c
 */
-int				ft_content_exist(char **env, char *line);
-char			*ft_get_content(char **env, char *line);
-void			ft_set_content(char **env, char *line, char *new_content);
+int				ft_content_exist(char **env, char *name);
+char			*ft_get_content(char **env, char *name);
+void			ft_set_content(char **env, char *name, char *value);
 
 #endif

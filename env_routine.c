@@ -6,24 +6,24 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 17:24:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 12:48:23 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/24 17:13:28 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
 /*
-*** check the content if the line exist in environnement
-*** return 1 if line exist otherwise 0
+*** check the content if the name exist in environnement
+*** return 1 if name exist otherwise 0
 */
 
-int	ft_content_exist(char **env, char *line)
+int	ft_content_exist(char **env, char *name)
 {
 	char	*arg;
 	int		i;
 
 	i = 0;
-	arg = ft_strjoin(line, "=");
+	arg = ft_strjoin(name, "=");
 	while (env[i])
 	{
 		if (ft_strnequ(env[i], arg, ft_strlen(arg)))
@@ -35,10 +35,10 @@ int	ft_content_exist(char **env, char *line)
 }
 
 /*
-*** get the content in line
+*** get the content in name
 */
 
-char	*ft_get_content(char **env, char *line)
+char	*ft_get_content(char **env, char *name)
 {
 	char	*ret;
 	char	*arg;
@@ -46,7 +46,7 @@ char	*ft_get_content(char **env, char *line)
 	int		size;
 
 	i = 0;
-	arg = ft_strjoin(line, "=");
+	arg = ft_strjoin(name, "=");
 	size = ft_strlen(arg);
 	while (env[i])
 	{
@@ -59,26 +59,50 @@ char	*ft_get_content(char **env, char *line)
 }
 
 /*
-*** set the content of line with new_content
+*** set the content of name with value
 */
 
-void	ft_set_content(char **env, char *line, char *new_content)
+void	ft_set_content(char **env, char *name, char *value)
 {
 	char	*arg;
 	int		i;
 
 	i = 0;
-	arg = ft_strjoin(line, "=");
+	arg = ft_strjoin(name, "=");
 	while (env[i])
 	{
 		if (ft_strnequ(env[i], arg, ft_strlen(arg)))
 		{
 			ft_strdel(&env[i]);
-			env[i] = ft_strjoin(arg, new_content);
+			env[i] = ft_strjoin(arg, value);
 			ft_strdel(&arg);
 			break;
 		}
 		i++;
 	}
 	ft_strdel(&arg);
+}
+
+/*
+*** add value in the environemment
+*/
+
+void	ft_add_content(t_env *e, char *name, char *value)
+{
+	char	**new_env;
+	int		size;
+	int		i;
+
+	i = 0;
+	size = ft_array_len(e->env);
+	new_env = (char **)malloc(sizeof(char *) * size + 2);
+	while (e->env[i])
+	{
+		new_env[i] = ft_strdup(e->env[i]);
+		i++;
+	}
+	new_env[i] = ft_strjoin(name, ft_strcat("=", value));
+	new_env[i + 1] = "\0";
+	ft_free_tab(e->env);
+	e->env = new_env;
 }

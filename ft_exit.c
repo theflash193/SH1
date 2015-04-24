@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/23 11:37:52 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 16:58:02 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/04/24 17:48:20 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/04/24 17:50:59 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_minishell1.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_exit(int status)
 {
-	char	*tmp;
-	int		i;
-
-	tmp = s1;
-	i = 0;
-	while (tmp[i])
-		i++;
-	while (*s2)
-	{
-		tmp[i] = *s2;
-		i++;
-		s2++;
-	}
-	tmp[i] = '\0';
-	return (s1);
+	exit(status);
 }

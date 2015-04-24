@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 10:20:05 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 12:59:39 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/24 13:10:53 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	check_error(char *path)
 {
 	if (access(path, F_OK) == -1)
 		ft_error(2, path);
-	else if (access(path, W_OK) == -1)
+	else if (access(path, X_OK) == -1)
 		ft_error(4, path);
 }
 
