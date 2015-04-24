@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/24 17:48:20 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 17:50:59 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/24 17:56:43 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_exit(int status)
 {
-	exit(status);
+	_Exit(status);
 }
