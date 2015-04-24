@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minishell1.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/23 10:54:50 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/24 12:43:49 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char			*ft_strtrim(char const *s);
 void			exec_cmd(t_env *e);
 int				check_builtins(t_env *e);
 void			ft_exit(int status);
+void			ft_error(int mode, char *arg);
 /*
 *** bultins
 */

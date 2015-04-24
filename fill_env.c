@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/22 16:07:36 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/24 12:55:40 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ char	**fill_env(char **environ)
 			return (NULL);
 		i++;
 	}
-	ft_put_array(ret);
 	return (ret);
 }

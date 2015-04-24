@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_routine.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 17:24:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/22 17:09:10 by anonymous        ###   ########.fr       */
+/*   Updated: 2015/04/24 12:48:23 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_content_exist(char **env, char *line)
 			return (1);
 		i++;
 	}
-	ft_strdel(arg);
+	ft_strdel(&arg);
 	return (0);
 }
 
@@ -50,8 +50,8 @@ char	*ft_get_content(char **env, char *line)
 	size = ft_strlen(arg);
 	while (env[i])
 	{
-		if (ft_strnequ(env[i], arg, size)
-			return (ft_strdup(env[i] + size));
+		if (ft_strnequ(env[i], arg, size))
+			return (ret = ft_strdup(env[i] + size));
 		i++;
 	}
 	ft_strdel(&arg);
@@ -75,10 +75,10 @@ void	ft_set_content(char **env, char *line, char *new_content)
 		{
 			ft_strdel(&env[i]);
 			env[i] = ft_strjoin(arg, new_content);
-			ft_strdel(arg);
+			ft_strdel(&arg);
 			break;
 		}
 		i++;
 	}
-	ft_strdel(arg);
+	ft_strdel(&arg);
 }
