@@ -24,7 +24,7 @@ FLAGS = -Wall  -Werror -Wextra -g
 
 SRC = main.c fill_env.c minishell.c ft_prompt.c parse.c ft_strtrim2.c \
 	ft_strsplit2.c exec_cmd.c check_bultins.c ft_cd.c env_routine.c \
-	ft_error.c ft_exit.c
+	ft_error.c ft_exit.c ft_setenv.c
 
 
 OBJ = $(SRC:.c=.o)
@@ -53,6 +53,6 @@ re: fclean all
 
 gdb: $(OBJ)
 	$(CC) $(OBJ) $(LIB) -o $(NAME)
-	gdb $(NAME) -w
+	lldb $(NAME) -w
 
 .PHONY: all libft clean fclean re gdb

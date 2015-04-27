@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 17:24:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 17:13:28 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/27 17:53:39 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,18 @@ void	ft_add_content(t_env *e, char *name, char *value)
 
 	i = 0;
 	size = ft_array_len(e->env);
-	new_env = (char **)malloc(sizeof(char *) * size + 2);
+	new_env = (char **)malloc(sizeof(char *) * (size + 2));
 	while (e->env[i])
 	{
 		new_env[i] = ft_strdup(e->env[i]);
 		i++;
 	}
-	new_env[i] = ft_strjoin(name, ft_strcat("=", value));
-	new_env[i + 1] = "\0";
+	if (ft_strequ(value, ""))
+		new_env[i] = ft_strjoin(name, "=");
+	else
+		new_env[i] = ft_strjoin(name, ft_strjoin("=", value));
+	i++;
+	new_env[i] = "\0";
 	ft_free_tab(e->env);
 	e->env = new_env;
 }

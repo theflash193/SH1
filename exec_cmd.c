@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/21 15:22:13 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/27 17:57:16 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void			exec_cmd(t_env *e)
 {
 	int		i;
 	char	*path_bin;
+	int		boolean;
 
+	boolean = 1;
 	i = 0;
 	path_bin = NULL;
 	if (check_builtins(e)) // Si ma commande fait partie de mes bultins je l'execute
@@ -51,6 +53,7 @@ void			exec_cmd(t_env *e)
 			execve(path_bin, e->cmd, e->env);
 			i++;
 		}
+		ft_error(1, e->cmd[0]);
 	}
 	else
 		wait(NULL);

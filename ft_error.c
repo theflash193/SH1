@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:36:12 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/23 11:39:12 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/27 14:18:46 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void ft_error(int mode, char *arg)
 		ft_putendl(arg);
 	}
 	if (mode == 3)
-		ft_putendl("cd: too many arguments");
+	{
+		ft_putstr(arg);
+		ft_putendl(": too many arguments");
+	}
 	if (mode == 4)
 	{
 		ft_putstr("permission denied: ");
