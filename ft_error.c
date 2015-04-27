@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:36:12 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/27 14:18:46 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/27 18:12:05 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void ft_error(int mode, char *arg)
 		ft_putstr("permission denied: ");
 		ft_putendl(arg);
 	}
+	if (mode == 5)
+		ft_putendl("");
 }
