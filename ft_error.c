@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:36:12 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/27 18:12:05 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 14:37:59 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void ft_error(int mode, char *arg)
 	if (mode == 1)
 	{
 		ft_putstr("command not found: ");
-		ft_putendl(arg);
+		if (!ft_strcmp(arg, ""))
+			ft_putendl("");
+		else
+			ft_putendl(arg);
 	}
 	if (mode == 2)
 	{
