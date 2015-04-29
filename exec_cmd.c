@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 14:37:27 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 14:49:38 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ void			exec_cmd(t_env *e)
 		if (!ft_strncmp(e->cmd[0], "\0", 1))
 			ft_exit(0);
 		else
+		{
 			ft_error(1, e->cmd[0]);
+			ft_exit(0);
+		}
 	}
 	else
 		wait(NULL);
