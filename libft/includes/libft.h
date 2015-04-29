@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 12:39:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/17 19:32:14 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:37:57 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,4 @@ char				*ft_strnjoin(char const *s1, char const *s2, size_t n);
 void				ft_put_array(char **tab);
 int					ft_array_len(char **tab);
 int					get_next_line(int const fd, char **line);
-
-
 #endif

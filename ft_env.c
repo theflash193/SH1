@@ -6,11 +6,12 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/29 13:45:31 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 16:09:42 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:56:54 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
+
 static void	print_env(char **env)
 {
 	int	i;
@@ -22,6 +23,7 @@ static void	print_env(char **env)
 		i++;
 	}
 }
+
 static int	check_error(t_env *e)
 {
 	int	l;
@@ -36,7 +38,7 @@ static int	check_error(t_env *e)
 	return (0);
 }
 
-void	ft_env(t_env *e)
+void		ft_env(t_env *e)
 {
 	int	l;
 

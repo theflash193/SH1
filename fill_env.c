@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 12:55:40 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:54:40 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**fill_env(char **environ)
 	char	**ret;
 	int		i;
 
-	if(!(ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1))))
+	if (!(ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1))))
 		return (NULL);
 	i = 0;
 	while (environ[i])

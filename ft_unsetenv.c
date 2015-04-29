@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/27 13:35:33 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 13:43:06 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:57:48 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_new_env(t_env *e, char *name)
 	e->env = new_env;
 }
 
-void	ft_unsetenv(t_env *e)
+void		ft_unsetenv(t_env *e)
 {
 	if (check_error(e))
 		return ;

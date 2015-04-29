@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 17:24:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 13:39:57 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:48:48 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 *** return 1 if name exist otherwise 0
 */
 
-int	ft_content_exist(char **env, char *name)
+int		ft_content_exist(char **env, char *name)
 {
 	char	*arg;
 	int		i;
@@ -33,10 +33,6 @@ int	ft_content_exist(char **env, char *name)
 	ft_strdel(&arg);
 	return (0);
 }
-
-/*
-*** get the content in name
-*/
 
 char	*ft_get_content(char **env, char *name)
 {
@@ -58,10 +54,6 @@ char	*ft_get_content(char **env, char *name)
 	return (NULL);
 }
 
-/*
-*** set the content of name with value
-*/
-
 void	ft_set_content(char **env, char *name, char *value)
 {
 	char	*arg;
@@ -76,16 +68,12 @@ void	ft_set_content(char **env, char *name, char *value)
 			ft_strdel(&env[i]);
 			env[i] = ft_strjoin(arg, value);
 			ft_strdel(&arg);
-			break;
+			break ;
 		}
 		i++;
 	}
 	ft_strdel(&arg);
 }
-
-/*
-*** add value in the environemment
-*/
 
 void	ft_add_content(t_env *e, char *name, char *value)
 {
@@ -110,4 +98,3 @@ void	ft_add_content(t_env *e, char *name, char *value)
 	ft_free_tab(e->env);
 	e->env = new_env;
 }
-

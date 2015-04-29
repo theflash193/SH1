@@ -6,12 +6,12 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 13:49:30 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:57:25 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_MINISHELL1
-# define FT_MINISHELL1
+#ifndef FT_MINISHELL1_H
+# define FT_MINISHELL1_H
 # include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
@@ -26,7 +26,7 @@ typedef struct	s_env
 	char		**path;
 }				t_env;
 
-void			ft_prompt();
+void			ft_prompt(void);
 char			**fill_env(char **environ);
 void			minishell(t_env *e);
 char			**parse(char const *line);

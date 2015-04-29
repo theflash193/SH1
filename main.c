@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:22:03 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/24 12:57:58 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 16:38:21 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		main(void)
 {
-	extern char **environ;
-	t_env	e;
+	extern char	**environ;
+	t_env		e;
 
 	e.line = NULL;
 	e.cmd = NULL;
