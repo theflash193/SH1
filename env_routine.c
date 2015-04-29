@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 17:24:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/27 17:53:39 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 13:39:57 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ void	ft_add_content(t_env *e, char *name, char *value)
 	else
 		new_env[i] = ft_strjoin(name, ft_strjoin("=", value));
 	i++;
-	new_env[i] = "\0";
+	new_env[i] = 0;
 	ft_free_tab(e->env);
 	e->env = new_env;
 }
+

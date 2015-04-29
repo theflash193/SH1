@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/27 13:35:33 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/27 18:15:50 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/04/29 13:43:06 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,23 @@ static void	ft_new_env(t_env *e, char *name)
 	char	**new_env;
 	int		i;
 	int		j;
+	int		size;
 
 	i = 0;
 	j = 0;
-	new_env = (char **)malloc(sizeof(char *) * (ft_array_len(e->env) - 1));
+	size = ft_array_len(e->env);
+	new_env = (char **)malloc(sizeof(char *) * (size - 1));
 	while (e->env[i])
 	{
-		if (ft_strequ(e->env[i], name))
+		if (!ft_strnequ(e->env[i], name, ft_strlen(name)))
 		{
 			new_env[j] = ft_strdup(e->env[i]);
 			j++;
 		}
 		i++;
 	}
-	new_env[j] = "\0";
+	new_env[j] = 0;
+	ft_put_array(new_env);
 	ft_free_tab(e->env);
 	e->env = new_env;
 }
