@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 14:53:44 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 16:22:16 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static char	**create_env(char **ret)
 	return (ret);
 }
 
-char	**fill_env(char **environ)
+char		**fill_env(char **environ)
 {
 	char	**ret;
 	int		i;
 
 	ret = NULL;
 	if (environ && environ[0] == 0)
-		return create_env(ret);
+		return (create_env(ret));
 	if (!(ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1))))
 		return (NULL);
 	i = 0;

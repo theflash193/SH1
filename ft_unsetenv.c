@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/27 13:35:33 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 16:57:48 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 17:31:03 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static int	check_error(t_env *e)
 		return (1);
 	}
 	else if (!ft_content_exist(e->env, e->cmd[1]))
+	{
 		ft_error(5, "");
+		return (1);
+	}
 	return (0);
 }
 
@@ -54,7 +57,6 @@ static void	ft_new_env(t_env *e, char *name)
 		i++;
 	}
 	new_env[j] = 0;
-	ft_put_array(new_env);
 	ft_free_tab(e->env);
 	e->env = new_env;
 }

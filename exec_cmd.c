@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 16:06:43 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 17:45:10 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char		**get_path(char **env)
 	ret = NULL;
 	while (env[i])
 	{
-		if (ft_strnstr(env[i], "PATH=", 5))
+		if (ft_strnstr(env[i], "PATH=", 5) && !ft_strequ(env[i], "PATH="))
 		{
 			if (!(ret = ft_strsplit(env[i] + 5, ':')))
 				return (NULL);
@@ -67,6 +67,7 @@ void			exec_cmd(t_env *e)
 	if (check_builtins(e))
 		return ;
 	e->path = get_path(e->env);
+	ft_put_array(e->path);
 	if (fork() == 0)
 		execution_command(e);
 	else
