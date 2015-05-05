@@ -6,17 +6,17 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 15:39:45 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 16:06:43 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-// static void		clean_leaks(t_env *e)
-// {
-// 	ft_free_tab(cmd);
-// 	ft_free_tab(path);
-// }
+static void		clean_leaks(t_env *e)
+{
+	ft_free_tab(e->cmd);
+	ft_free_tab(e->path);
+}
 
 static char		**get_path(char **env)
 {
@@ -54,11 +54,11 @@ static void		execution_command(t_env *e)
 	}
 	execve(e->cmd[0], e->cmd, e->env);
 	if (!ft_strncmp(e->cmd[0], "\0", 1))
-		ft_exit(0);
+		ft_exit(0, e);
 	else
 	{
 		ft_error(1, e->cmd[0]);
-		ft_exit(0);
+		ft_exit(0, e);
 	}
 }
 
@@ -72,6 +72,6 @@ void			exec_cmd(t_env *e)
 	else
 	{
 		wait(NULL);
-		// clean_leaks(e);
+		clean_leaks(e);
 	}
 }

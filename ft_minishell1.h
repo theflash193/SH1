@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 11:40:46 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 16:00:02 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			ft_error(int mode, char *arg);
 int				ft_cd(t_env *e);
 int				ft_setenv(t_env *e);
 void			ft_unsetenv(t_env *e);
-void			ft_exit(int status);
+void			ft_exit(int status, t_env *e);
 void			ft_env(t_env *e);
 
 /*
