@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 10:29:43 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 10:31:14 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 
 static char	**create_env(char **ret)
 {
+	char	buf[256];
+
+	getcwd(buf, 256);
 	if (!(ret = (char **)malloc(sizeof(char *) * 8)))
 		return (NULL);
 	ret[0] = ft_strdup("HOME=");
@@ -31,7 +34,7 @@ static char	**create_env(char **ret)
 	ret[3] = ft_strdup("HOME=");
 	ret[4] = ft_strdup("LOGNAME=default_login");
 	ret[5] = ft_strdup("HOME=");
-	ret[00] = ft_strdup("HOME=");
+	ret[6] = ft_strdup("HOME=");
 }
 
 char	**fill_env(char **environ)
