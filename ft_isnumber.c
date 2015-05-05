@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/24 17:48:20 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 15:37:13 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/05/05 11:32:55 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/05/05 11:46:46 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_minishell1.h"
+#include <libft.h>
 
-void	ft_exit(int status)
+int	ft_isnumber(char *s)
 {
-	_Exit(status);
+	int	i;
+
+	i = 0;
+	if (s == NULL)
+		return (0);
+	if (ft_strequ(s, ""))
+		return (0);
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

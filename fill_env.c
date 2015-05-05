@@ -6,20 +6,11 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 10:31:14 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 14:53:44 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
-
-// je cree un env avec un PATH, PWD, OLDPWD, USER
-// HOME=
-// LOGNAME=default_login
-// SHLVL=1
-// OLDPWD=
-// PWD=retour de getpwd
-// PATH=/bin
-// USER=default_login
 
 static char	**create_env(char **ret)
 {
@@ -30,11 +21,13 @@ static char	**create_env(char **ret)
 		return (NULL);
 	ret[0] = ft_strdup("HOME=");
 	ret[1] = ft_strdup("LOGNAME=default_login");
-	ret[2] = ft_strdup("HOME=");
-	ret[3] = ft_strdup("HOME=");
-	ret[4] = ft_strdup("LOGNAME=default_login");
-	ret[5] = ft_strdup("HOME=");
-	ret[6] = ft_strdup("HOME=");
+	ret[2] = ft_strdup("SHLVL=1");
+	ret[3] = ft_strjoin("PWD=", buf);
+	ret[4] = ft_strdup("OLDPWD=");
+	ret[5] = ft_strdup("PATH=/bin");
+	ret[6] = ft_strdup("USER=default_login");
+	ret[7] = 0;
+	return (ret);
 }
 
 char	**fill_env(char **environ)
@@ -42,6 +35,7 @@ char	**fill_env(char **environ)
 	char	**ret;
 	int		i;
 
+	ret = NULL;
 	if (environ && environ[0] == 0)
 		return create_env(ret);
 	if (!(ret = (char **)malloc(sizeof(char *) * (ft_array_len(environ) + 1))))

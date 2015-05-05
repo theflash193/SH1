@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 16:57:25 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/05 11:40:46 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,10 @@ int				ft_content_exist(char **env, char *name);
 char			*ft_get_content(char **env, char *name);
 void			ft_set_content(char **env, char *name, char *value);
 void			ft_add_content(t_env *e, char *name, char *value);
+
+/*
+*** routine
+*/
+int				ft_isnumber(char *s);
 
 #endif
