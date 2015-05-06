@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/27 13:35:33 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 16:57:48 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/06 11:43:08 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	check_error(t_env *e)
 		return (1);
 	}
 	else if (!ft_content_exist(e->env, e->cmd[1]))
-		ft_error(5, "");
+		return (1);
 	return (0);
 }
 
@@ -43,7 +43,7 @@ static void	ft_new_env(t_env *e, char *name)
 	i = 0;
 	j = 0;
 	size = ft_array_len(e->env);
-	new_env = (char **)malloc(sizeof(char *) * (size - 1));
+	new_env = (char **)malloc(sizeof(char *) * (size));
 	while (e->env[i])
 	{
 		if (!ft_strnequ(e->env[i], name, ft_strlen(name)))
@@ -54,7 +54,6 @@ static void	ft_new_env(t_env *e, char *name)
 		i++;
 	}
 	new_env[j] = 0;
-	ft_put_array(new_env);
 	ft_free_tab(e->env);
 	e->env = new_env;
 }
