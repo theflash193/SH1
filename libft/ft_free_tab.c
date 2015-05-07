@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 12:48:24 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/06 16:08:59 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/07 12:53:16 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_free_tab(char **arg)
 		return ;
 	while (arg[i])
 	{
-		ft_strclr(arg[i]);
 		ft_strdel(&arg[i]);
+		ft_strclr(arg[i]);
 		i++;
 	}
 	free(arg);

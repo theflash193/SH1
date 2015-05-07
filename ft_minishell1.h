@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:17:29 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/06 18:25:11 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/07 15:41:07 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,11 @@ typedef struct	s_env
 void			ft_prompt(void);
 char			**fill_env(char **environ);
 void			minishell(t_env *e);
-char			**parse(char *line);
+void			parse(t_env *e);
 char			**ft_strsplit2(char const *s);
 char			*ft_strtrim(char const *s);
 void			exec_cmd(t_env *e);
 int				check_builtins(t_env *e);
-
 void			ft_error(int mode, char *arg);
 
 /*

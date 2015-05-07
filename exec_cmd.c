@@ -6,15 +6,14 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/06 18:14:03 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/07 15:13:33 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_minishell1.h"
+
 static void clean_leaks(t_env *e)
 {
-	ft_free_tab(e->cmd);
 	ft_free_tab(e->path);
 }
 
@@ -69,7 +68,6 @@ static void		execution_command(t_env *e)
 		ft_exit(0, e);
 	else
 	{
-		ft_putendl("jojo");
 		ft_error(1, e->cmd[0]);
 		ft_exit(0, e);
 	}
@@ -77,8 +75,6 @@ static void		execution_command(t_env *e)
 
 void			exec_cmd(t_env *e)
 {
-	ft_putendl("cmd :");
-	ft_put_array(e->cmd);
 	if (check_builtins(e))
 		return ;
 	e->path = get_path(e);
@@ -87,6 +83,7 @@ void			exec_cmd(t_env *e)
 	else
 	{
 		wait(NULL);
+		// ft_put_array(e->cmd);
 		clean_leaks(e);
 	}
 }
