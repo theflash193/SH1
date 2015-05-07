@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:36:32 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/05 16:22:16 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/07 18:51:21 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static char	**create_env(char **ret)
 {
-	char	buf[256];
+	char	buf[2048];
 
-	getcwd(buf, 256);
+	getcwd(buf, 2048);
 	if (!(ret = (char **)malloc(sizeof(char *) * 8)))
 		return (NULL);
 	ret[0] = ft_strdup("HOME=");

@@ -6,16 +6,11 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/07 15:13:33 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/07 18:50:36 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
-
-static void clean_leaks(t_env *e)
-{
-	ft_free_tab(e->path);
-}
 
 static char		**default_path(void)
 {
@@ -52,9 +47,12 @@ static char		**get_path(t_env *e)
 static void		execution_command(t_env *e)
 {
 	int		i;
-	char	path_bin[258];
+	char	path_bin[2024];
 
 	i = 0;
+	if (check_builtins(e))
+		return ;
+	e->path = get_path(e);
 	while (e->path[i])
 	{
 		ft_strcpy(path_bin, e->path[i]);
@@ -75,15 +73,14 @@ static void		execution_command(t_env *e)
 
 void			exec_cmd(t_env *e)
 {
-	if (check_builtins(e))
-		return ;
-	e->path = get_path(e);
-	if (fork() == 0)
+	pid_t	father;
+	int		status;
+
+	father = fork();
+	if (father == -1)
+		ft_exit(0, e);
+	if (father == 0)
 		execution_command(e);
 	else
-	{
-		wait(NULL);
-		// ft_put_array(e->cmd);
-		clean_leaks(e);
-	}
+		waitpid(father, &status, WUNTRACED | WCONTINUED);
 }

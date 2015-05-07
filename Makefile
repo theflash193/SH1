@@ -26,7 +26,6 @@ SRC = main.c fill_env.c minishell.c ft_prompt.c parse.c ft_strtrim2.c \
 	ft_strsplit2.c exec_cmd.c check_bultins.c ft_cd.c env_routine.c \
 	ft_error.c ft_exit.c ft_setenv.c ft_unsetenv.c ft_env.c ft_isnumber.c
 
-
 OBJ = $(SRC:.c=.o)
 
 RM = rm -rf
