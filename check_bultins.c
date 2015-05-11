@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 14:05:47 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/11 15:03:32 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/11 15:19:38 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int				check_builtins(t_env *e)
 	else if (ft_strequ(e->cmd[0], "setenv") || ft_strequ(e->cmd[0], "SETENV"))
 	{
 		ft_setenv(e);
-		ft_put_array(e->env);
 		return (1);
 	}
 	else if (ft_strequ(e->cmd[0], "unsetenv") ||

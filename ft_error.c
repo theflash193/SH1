@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:36:12 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 14:37:59 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/11 15:25:06 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ft_error(int mode, char *arg)
 	}
 	if (mode == 2)
 	{
-		ft_putstr("no such file or directory: ");
+		ft_putstr("No such file or directory: ");
 		ft_putendl(arg);
 	}
 	if (mode == 3)

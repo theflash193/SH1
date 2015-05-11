@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/21 10:20:05 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/04/29 16:54:59 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/11 16:02:03 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,19 @@ static void	check_option(t_env *e)
 
 	nbr = ft_array_len(e->cmd);
 	if (nbr == 1)
-		change_directory(e, ft_get_content(e->env, "HOME"));
+	{
+		if (ft_content_exist(e->env, "HOME"))
+			change_directory(e, ft_get_content(e->env, "HOME"));
+		ft_error(2, "");
+		return ;
+	}
 	else if (nbr == 2 && ft_strequ(e->cmd[1], "-"))
-		change_directory(e, ft_get_content(e->env, "OLDPWD"));
+	{
+		if (ft_content_exist(e->env, "HOME"))
+			change_directory(e, ft_get_content(e->env, "OLDPWD"));
+		ft_error(2, "");
+		return ;
+	}
 	else
 		change_directory(e, e->cmd[1]);
 }

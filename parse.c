@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/13 16:30:08 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/11 14:46:57 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/11 16:06:57 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	parse(t_env *e)
 {
-	char	*tmp_line = ft_strtrim(e->line);
+	char	*tmp_line;
 
+	tmp_line = ft_strtrim(e->line);
 	if (e->cmd != NULL)
 		ft_free_tab(e->cmd);
 	tmp_line = ft_strtrim(e->line);
