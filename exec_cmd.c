@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 09:48:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/07 18:50:36 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/11 14:56:32 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ static void		execution_command(t_env *e)
 	char	path_bin[2024];
 
 	i = 0;
-	if (check_builtins(e))
-		return ;
 	e->path = get_path(e);
 	while (e->path[i])
 	{
@@ -80,7 +78,11 @@ void			exec_cmd(t_env *e)
 	if (father == -1)
 		ft_exit(0, e);
 	if (father == 0)
+	{
+		if (check_builtins(e))
+			ft_exit(0, e);
 		execution_command(e);
+	}
 	else
 		waitpid(father, &status, WUNTRACED | WCONTINUED);
 }

@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 14:33:27 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/05/07 15:55:50 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/05/11 14:43:37 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static int	get_next_line2(int const fd, char **line, t_gnl *e)
 			return (1);
 		}
 		*line = ft_strjoin(*line, buff);
+		ft_bzero(buff, BUFF_SIZE);
 		if ((e->ret = read(fd, buff, BUFF_SIZE)))
 			buff[BUFF_SIZE] = '\0';
 		if (e->ret <= 0)
 		{
 			if (ft_strequ(buff, ""))
 				return ((e->ret == -1 ? e->ret : 0));
-			ft_bzero(buff, BUFF_SIZE);
 			return ((e->ret == -1 ? e->ret : 1));
 		}
 	}
